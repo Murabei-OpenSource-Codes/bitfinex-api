@@ -1,0 +1,2 @@
+export BITFINEX__API_KEY=""
+export BITFINEX__API_SECRET=""

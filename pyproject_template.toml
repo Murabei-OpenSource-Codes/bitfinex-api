@@ -1,0 +1,66 @@
+[project]
+name = "bitfinex-api"
+version = "{VERSION}"
+description = "Python API to interact with Bitfinex endpoints"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "BSD-3-Clause License" }
+authors = [
+    {name = "Murabei Data Science", email = "a.baceti@murabei.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "loguru",
+    "requests (>=2.32.5,<3.0.0)",
+    "tenacity (>=9.1.4,<10.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "bitfinex_api", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 79
+indent-width = 4
+
+exclude = [
+  "secrets/",
+  "__init__.py",
+]
+
+[tool.ruff.lint]
+select = [
+    "F",
+    "E",
+    "W",
+    "D",
+    "I",
+    "N",
+    "S",
+]
+
+ignore = [
+  "E402", "N806", "I001"
+]
+
+preview = true
+
+[tool.ruff.format]
+indent-style = "space"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+no-sections = true
+
+[dependency-groups]
+docs = [
+    "mkdocs (>=1.6.1,<2.0.0)"
+]
