@@ -47,12 +47,25 @@ class BitfinexAPIError(Exception):
             "message": message}
 
 
+class BitfinexAPIInvalidParametersError(BitfinexAPIError):
+    """Exception for invalid parameters errors."""
+
+
+class BitfinexAPIDataValidationError(BitfinexAPIError):
+    """Exception for data validation errors."""
+
+
+# Request-related errors
 class BitfinexAPIRequestError(BitfinexAPIError):
     """Exception for a failed Bitfinex HTTP response."""
 
 
 class BitfinexAPIAuthenticationError(BitfinexAPIRequestError):
     """Exception for missing or invalid Bitfinex API credentials."""
+
+
+class BitfinexAPINoneResponseError(BitfinexAPIRequestError):
+    """Exception for response body containing no data."""
 
 
 class BitfinexAPIRequestTreatment:
